@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Switch, Route } from "react-router-dom";
 import Form from "./components/Form";
 import Shows from "./components/Shows";
 
@@ -14,7 +15,7 @@ function App() {
 
   const onSubmit = () => {
     setSearch(input)
-    console.log(result);
+    // console.log(result);
   }
 
   const onResult = (inputResult) => {
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <>  
-      <h1>API Fetch</h1>
+      <h1>TV Shows</h1>
       <Form onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result}/>
       <Shows result={result}/>
     </>

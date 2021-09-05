@@ -19,21 +19,21 @@ const Form = (props) => {
             let res = await fetch(url + props.value);
             res = await res.json();
             // setResult(res);
-            console.log(res[0].show);
-            let link = [];
-            if (Array.isArray(res)){
-                link = res.map((element) => {
-                    return element.show.image.medium;
-                })
-                props.onResult(link);
-            }
-            else {
-                link = res.show.image.medium;
-                props.onResult([link]);
-            }
+            // console.log(res[0].show);
+            // let link = [];
+            // if (Array.isArray(res)){
+            //     link = res.map((element) => {
+            //         return element.show.image.medium;
+            //     })
+            //     props.onResult(link);
+            // }
+            // else {
+            //     link = res.show.image.medium;
+            //     props.onResult([link]);
+            // }
             // const link = res[0].show.image.medium;
-            
-            console.log(link);
+            props.onResult(res);
+            // console.log(link);
         }
         catch(err){
             console.log("error", err.message);
