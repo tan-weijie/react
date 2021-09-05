@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Form from "./components/Form";
+import Shows from "./components/Shows";
 
 function App() {
+
+  const [input, setInput] = useState("");
+  const [search, setSearch] = useState(input);
+  const [result, setResult] = useState([]);
+
+  const onChange = (valueInput) => {
+    setInput(valueInput);
+  }
+
+  const onSubmit = () => {
+    setSearch(input)
+    console.log(result);
+  }
+
+  const onResult = (inputResult) => {
+    setResult(inputResult);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>  
+      <h1>API Fetch</h1>
+      <Form onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result}/>
+      <Shows result={result}/>
+    </>
+
   );
 }
 
