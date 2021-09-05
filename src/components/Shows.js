@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Shows = (props) => {
 
@@ -7,11 +8,11 @@ const Shows = (props) => {
     if (Array.isArray(props.result)){
         display = props.result.map((element) => {
             return (
-            <div>
+            <Link to={`/shows/${element.show.id}/${element.show.name}`}>
                 <img onClick={()=>console.log(element.show.name)} className="shows" key={Math.random()} src={element.show.image.medium}/>
                 <p>{element.show.name}</p>
-                {element.show.summary}
-            </div>
+                {/* {element.show.summary} */}
+            </Link>
             )
         })
     }
