@@ -16,27 +16,18 @@ const Form = (props) => {
         const url = "https://api.tvmaze.com/search/shows?q=";
 
         try{
-            let res = await fetch(url + props.value);
+            // let res = await fetch(url + props.value);
+            let res = await fetch(url + `${props.value}`)
             res = await res.json();
-            // setResult(res);
-            // console.log(res[0].show);
-            // let link = [];
-            // if (Array.isArray(res)){
-            //     link = res.map((element) => {
-            //         return element.show.image.medium;
-            //     })
-            //     props.onResult(link);
-            // }
-            // else {
-            //     link = res.show.image.medium;
-            //     props.onResult([link]);
-            // }
             // const link = res[0].show.image.medium;
+            // console.log("THIS", res[1].show.image.original);
+            console.log("THAT", res[1])
             props.onResult(res);
+            props.onChange(""); //resets input field
             // console.log(link);
         }
         catch(err){
-            console.log("error", err.message);
+            console.log("ERROR", err);
         }
     }
 
