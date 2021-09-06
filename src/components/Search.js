@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Shows.css";
+import "./Search.css";
 
-const Shows = (props) => {
+const Search = (props) => {
 
     let display;
 
@@ -13,8 +13,8 @@ const Shows = (props) => {
                     <>
                         <Link to={`/shows/${element.show.id}/${element.show.name}`}>
                             <div className="row">
-                                <img onClick={()=>console.log(element.show.name)} alt="" className="shows" key={Math.random()} src={element.show.image.medium}/>
-                                <p>{element.show.name}</p> 
+                                <img onClick={props.onSelected(element)} alt="" className="shows" key={Math.random()} src={element.show.image.medium}/>
+                                <p onClick={props.onSelected(element)}>{element.show.name}</p> 
                             </div>
                         </Link>
                         {/* {element.show.summary} */}
@@ -41,7 +41,6 @@ const Shows = (props) => {
         display = props.result.show.image.medium;
     }
 
-
     return (
         <>  
             <Link to="/search">
@@ -54,4 +53,4 @@ const Shows = (props) => {
     )
 }
 
-export default Shows;
+export default Search;

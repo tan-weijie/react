@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 const Form = (props) => {
 
@@ -34,8 +35,11 @@ const Form = (props) => {
     return(
         <form>
             <input onChange={handleChange} type="text" placeholder="Search for show." value={props.value}/>
-            {/* {input} */}
-            <button onClick={handleSubmit}>Search</button>
+            <button onClick={handleSubmit}>
+                <Link to="/search">
+                    Search
+                </Link>
+            </button>
             {/* {search} */}
             {/* <img src={props.result}/> */}
         </form>
