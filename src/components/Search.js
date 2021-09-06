@@ -10,27 +10,22 @@ const Search = (props) => {
         display = props.result.map((element) => {
             if(element.show.image){
                 return (
-                    <>
+                    <div className="col-sm-2" onClick={props.onSelected} >
                         <Link to={`/shows/${element.show.id}/${element.show.name}`}>
-                            <div className="row">
-                                <img onClick={props.onSelected(element)} alt="" className="shows" key={Math.random()} src={element.show.image.medium}/>
-                                <p onClick={props.onSelected(element)}>{element.show.name}</p> 
-                            </div>
+                            <img onClick={props.onSelected} selected={element.show} alt="" className="shows" id={element.show.id} src={element.show.image.medium}/>
+                            <p onClick={props.onSelected} selected={element.show} id={element.show.id}>{element.show.name}</p> 
                         </Link>
-                        {/* {element.show.summary} */}
-                    </>
-               
+                    </div>
                     )
             } else {
                 return (
                     <>
                         <Link to={`/shows/${element.show.id}/${element.show.name}`}>
-                            <div className="row">
+                            <div className="col-sm-2">
                                 <img onClick={()=>console.log(element.show.name)} alt="No Image" className="shows" key={Math.random()} src="No Image"/>
                                 <p>{element.show.name}</p>
                             </div>        
                         </Link>
-                        {/* {element.show.summary} */}
                     </>
                 )
            

@@ -22,7 +22,7 @@ const Form = (props) => {
             res = await res.json();
             // const link = res[0].show.image.medium;
             // console.log("THIS", res[1].show.image.original);
-            console.log("THAT", res[1])
+            // console.log("THAT", res[1])
             props.onResult(res);
             props.onChange(""); //resets input field
             // console.log(link);
@@ -40,8 +40,6 @@ const Form = (props) => {
                     Search
                 </Link>
             </button>
-            {/* {search} */}
-            {/* <img src={props.result}/> */}
         </form>
     )
 }

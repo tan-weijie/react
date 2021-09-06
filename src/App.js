@@ -24,28 +24,31 @@ function App() {
       setResult(inputResult);
     }
 
-    const onSelected = (selectedShow) => {
-      setShow(selectedShow);
-      console.log("select",show);
+    const onSelected = (e) => {
+      setShow(e.target.selected);
+      console.log("select", e.target.selected);
     }
 
-    useEffect(()=>{
+    useEffect(() => {
 
     },[])
     
     return (
-        <>  
-            <h1><Link to="/home">TV Shows</Link></h1>
+        <main>  
+            <h1>
+              <Link exact to="/home">
+                TV Shows
+              </Link>
+            </h1>
             <Form onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result}/>
             <Route path="/search">
-                <h1>Search</h1>
+                <h1>Search Results:</h1>
                 <Search result={result} onSelected={onSelected}/>
             </Route>
             <Route path="/shows/">
-                <h1>Show</h1>
                 <Show result={result} show={show}/>
             </Route>
-        </>
+        </main>
     );
 }
 
