@@ -5,19 +5,12 @@ const Show = (props) => {
 
     const selected = props.show;
 
-    // const summary = (selected.summary) => {
-    //     const dom = document.createElement("div");
-    //     dom.innerHTML = selected.summary;
-    //     return dom;
-    //     console.log(dom);
-    // }
-
     return (
         <article>
-            <img src={selected.image.medium}/>
+            {selected.image ? <img src={selected.image.medium}/> : <img src="No image found"/>}
             <div className="row">
                 <h2>Title: {selected.name}</h2>
-                <a href={selected.officialSite}>Official Site</a>
+                {selected.officialSite ? <a href={selected.officialSite}>Official Site</a>: <a></a>}
                 <p> 
                     <b>Language: </b>{selected.language}
                     <br/>
