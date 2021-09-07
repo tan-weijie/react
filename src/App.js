@@ -12,8 +12,8 @@ function App() {
     const [search, setSearch] = useState(input);
     const [result, setResult] = useState([]);
     const [show, setShow] = useState("");
-    const [logined, setLogined] = useState(false);
-    const [signUp, setSignUp] = useState([{user: "hello", email: "hello@", password: "hello"}]);
+    const [logined, setLogined] = useState(null);
+    // const [signUp, setSignUp] = useState([{user: "hello", email: "hello@", password: "hello"}]);
 
     const onChange = (valueInput) => {
       setInput(valueInput);
@@ -32,7 +32,11 @@ function App() {
       setShow(e.target.selected);
       console.log("select", e.target.selected);
     }
-
+    const onLogined = (inputLogin) => {
+      setLogined(inputLogin);
+      console.log(inputLogin);
+    }
+    
     //Sign Up
     const onSignUp = (newUser) => {
       const storage = window.localStorage;
@@ -53,10 +57,10 @@ function App() {
         <main>  
             <h1>
               <Link exact to="/home">
-                TV Shows
+                TVClone
               </Link>
             </h1>
-            <Form onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result}/>
+            <Form onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result} logined={logined}/>
             <Route path="/search">
                 <h1>Search Results:</h1>
                 <Search result={result} onSelected={onSelected}/>
@@ -65,15 +69,10 @@ function App() {
                 <Show result={result} show={show}/>
             </Route>
             <Route path="/login/">
-                <Login signUp={signUp}/>
+                <Login onLogined={onLogined}/>
             </Route>
             <Route path="/signup/">
                 <SignUp onSignUp={onSignUp}/>
-                {signUp[0].user}
-                <br/>
-                {signUp[0].email}
-                <br/>
-                {signUp[0].password}
             </Route>
         </main>
     );

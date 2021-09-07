@@ -17,27 +17,34 @@ const Login = (props) => {
         const storage = window.localStorage;
         const result = JSON.parse(storage.getItem(account));
         console.log(result);
-        if(!result || result.password !== password){
+        // console.log(result[0].password)
+        if(!result || result[0].password !== password){
             alert("invalid username and password")
+            props.onLogined(null);
+        }
+        else {
+            setAccount("");
+            setPassword("");
+            props.onLogined(account);
         }
     }
 
     return (
         <form>
-            <h2>Login with your TVClone account.</h2>
+            <h3>Login with your TVClone account.</h3>
             <div>
-                <label>Username/Email</label>
-                <input onChange={handleUserNameChange}type="text" placeholder="Username/Email" value={account}/>
+                <label>Username</label>
+                <input onChange={handleUserNameChange}type="text" placeholder="Username" value={account}/>
             </div>
             <div>
                 <label>Password</label>
                 <input onChange={handlePassWordChange} type="password" placeholder="Password" value={password}/>
             </div>
             <button onClick={handleSubmit} type="submit">Login</button>
-            <br/>
+            {/* <br/>
             {account}
             <br/>
-            {password}
+            {password} */}
         </form>
     )
 }
