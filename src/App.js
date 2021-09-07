@@ -86,7 +86,7 @@ function App() {
                 <SignUp onSignUp={onSignUp}/>
             </Route>
             <Route path="/user/">
-                <User logined={logined}/>
+                <User logined={logined} favourite={favourite}/>
             </Route>
         </main>
     );
