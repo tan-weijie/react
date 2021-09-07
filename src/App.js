@@ -13,7 +13,7 @@ function App() {
     const [result, setResult] = useState([]);
     const [show, setShow] = useState("");
     const [logined, setLogined] = useState(false);
-    const [signUp, setSignUp] = useState([{user: "", email: "", password: ""}]);
+    const [signUp, setSignUp] = useState([{user: "hello", email: "hello@", password: "hello"}]);
 
     const onChange = (valueInput) => {
       setInput(valueInput);
@@ -35,7 +35,13 @@ function App() {
 
     //Sign Up
     const onSignUp = (newUser) => {
-      setSignUp(newUser);
+      const storage = window.localStorage;
+      const allUser = [];
+      allUser.push(newUser)
+      storage.setItem(newUser.user, JSON.stringify(allUser));
+      // setSignUp(newUser);
+      console.log(storage.getItem('hello'))
+      console.log(storage.getItem("byebye"))
       console.log("user added")
     }
 
@@ -59,7 +65,7 @@ function App() {
                 <Show result={result} show={show}/>
             </Route>
             <Route path="/login/">
-                <Login/>
+                <Login signUp={signUp}/>
             </Route>
             <Route path="/signup/">
                 <SignUp onSignUp={onSignUp}/>

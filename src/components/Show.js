@@ -10,7 +10,7 @@ const Show = (props) => {
             {selected.image ? <img src={selected.image.medium}/> : <img src="No image found"/>}
             <div className="row">
                 <h2>Title: {selected.name}</h2>
-                {selected.officialSite ? <a href={selected.officialSite}>Official Site</a>: <a></a>}
+                {selected.officialSite && <a href={selected.officialSite}>Official Site</a>}
                 <p> 
                     <b>Language: </b>{selected.language}
                     <br/>

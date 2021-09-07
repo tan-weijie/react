@@ -28,7 +28,7 @@ const SignUp = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if(email.includes('@') && password === repeat){
-            const newUser = [{user: user, email: email, password: password}];
+            const newUser = {user: user, email: email, password: password};
             props.onSignUp(newUser);
             setUser("");
             setEmail("");
