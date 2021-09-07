@@ -5,6 +5,7 @@ import Show from "./components/Show";
 import Search from "./components/Search";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
+import User from "./components/User";
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
     const [result, setResult] = useState([]);
     const [show, setShow] = useState("");
     const [logined, setLogined] = useState(null);
-    // const [signUp, setSignUp] = useState([{user: "hello", email: "hello@", password: "hello"}]);
+    const [favourite, setFavourite] = useState([{}])
 
     const onChange = (valueInput) => {
       setInput(valueInput);
@@ -32,12 +33,14 @@ function App() {
       setShow(e.target.selected);
       console.log("select", e.target.selected);
     }
+    
+    // Login
     const onLogined = (inputLogin) => {
       setLogined(inputLogin);
       console.log(inputLogin);
     }
     
-    //Sign Up
+    // Sign Up
     const onSignUp = (newUser) => {
       const storage = window.localStorage;
       const allUser = [];
@@ -47,6 +50,14 @@ function App() {
       console.log(storage.getItem('hello'))
       console.log(storage.getItem("byebye"))
       console.log("user added")
+    }
+
+    // Favourites
+    const onFavourite = (inputFavourite) => {
+        setFavourite((prevState) => {
+          return [inputFavourite,...prevState]
+      })
+      console.log("favourite",favourite);
     }
 
     useEffect(() => {
@@ -66,13 +77,16 @@ function App() {
                 <Search result={result} onSelected={onSelected}/>
             </Route>
             <Route path="/shows/">
-                <Show result={result} show={show}/>
+                <Show result={result} show={show} onFavourite={onFavourite}/>
             </Route>
             <Route path="/login/">
                 <Login onLogined={onLogined}/>
             </Route>
             <Route path="/signup/">
                 <SignUp onSignUp={onSignUp}/>
+            </Route>
+            <Route path="/user/">
+                <User logined={logined}/>
             </Route>
         </main>
     );

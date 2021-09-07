@@ -40,7 +40,7 @@ const Form = (props) => {
                     Search
                 </Link>
             </button>
-            {props.logined ? <>{props.logined}</>: <Link to="/login">Login</Link>}
+            {props.logined ? <Link to="/user">{props.logined}</Link>: <Link to="/login">Login</Link>}
             {props.logined ? <>Log Out</> : <Link to="/signup">Sign Up</Link>}
         </form>
     )
