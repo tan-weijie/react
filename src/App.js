@@ -3,6 +3,8 @@ import { Link, Switch, Route, Router } from "react-router-dom";
 import Form from "./components/Form";
 import Show from "./components/Show";
 import Search from "./components/Search";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 function App() {
 
@@ -10,6 +12,8 @@ function App() {
     const [search, setSearch] = useState(input);
     const [result, setResult] = useState([]);
     const [show, setShow] = useState("");
+    const [logined, setLogined] = useState(false);
+    const [signUp, setSignUp] = useState([{user: "", email: "", password: ""}]);
 
     const onChange = (valueInput) => {
       setInput(valueInput);
@@ -27,6 +31,12 @@ function App() {
     const onSelected = (e) => {
       setShow(e.target.selected);
       console.log("select", e.target.selected);
+    }
+
+    //Sign Up
+    const onSignUp = (newUser) => {
+      setSignUp(newUser);
+      console.log("user added")
     }
 
     useEffect(() => {
@@ -47,6 +57,17 @@ function App() {
             </Route>
             <Route path="/shows/">
                 <Show result={result} show={show}/>
+            </Route>
+            <Route path="/login/">
+                <Login/>
+            </Route>
+            <Route path="/signup/">
+                <SignUp onSignUp={onSignUp}/>
+                {signUp[0].user}
+                <br/>
+                {signUp[0].email}
+                <br/>
+                {signUp[0].password}
             </Route>
         </main>
     );

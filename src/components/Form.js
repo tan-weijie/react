@@ -40,6 +40,8 @@ const Form = (props) => {
                     Search
                 </Link>
             </button>
+            <Link to="/login">Login </Link>
+            <Link to="/signup">Sign Up</Link>
         </form>
     )
 }
