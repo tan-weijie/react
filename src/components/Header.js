@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 
-const Form = (props) => {
+const Header = (props) => {
 
     const handleChange = (e) => {
         props.onChange(e.target.value);
@@ -56,4 +56,4 @@ const Form = (props) => {
     )
 }
 
-export default Form;
+export default Header;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, Switch, Route, Router } from "react-router-dom";
-import Form from "./components/Form";
+import Header from "./components/Header";
 import Show from "./components/Show";
 import Search from "./components/Search";
 import Login from "./components/Login";
@@ -71,7 +71,7 @@ function App() {
                 TVClone
               </Link>
             </h1>
-            <Form onLogined={onLogined} onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result} logined={logined}/>
+            <Header onLogined={onLogined} onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result} logined={logined}/>
             <Route path="/search">
                 <Search result={result} onSelected={onSelected}/>
             </Route>
