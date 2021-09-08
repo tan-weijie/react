@@ -19,7 +19,7 @@ const Login = (props) => {
         console.log(result);
         // console.log(result[0].password)
         if(!result || result[0].password !== password){
-            alert("invalid username and password")
+            alert("Invalid username and password")
             props.onLogined(null);
         }
         else {

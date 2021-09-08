@@ -5,6 +5,7 @@ const User = (props) => {
         <>
             {/* {props.logined} */}
             {props.favourite && <h3>Favourites</h3>}
+            <div className="row">
             {props.favourite.map((element)=>{                
                 if (element.image){
                     return (
@@ -12,9 +13,11 @@ const User = (props) => {
 
                         <div className="card col-sm-3 ">
                                 <img src={element.image.medium} className="card-img-top" alt=""/>
-                                <div class="card-body d-grid gap-2">
-                                    <h5 class="card-title">{element.name}</h5>
-                                    <button className="btn btn-primary">Remove</button>
+                                <div class="card-body">
+                                    <div className="row align-self-end">
+                                        <button className="btn btn-primary">Remove</button>
+                                        {/* <h5 class="card-title">{element.name}</h5> */}
+                                    </div>
                                 </div>
                         </div>
                     )
@@ -22,6 +25,7 @@ const User = (props) => {
                 else 
                     return  <img src=""/>
             })}
+            </div>
         </>
     )
 }

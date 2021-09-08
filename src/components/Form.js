@@ -32,20 +32,24 @@ const Form = (props) => {
         }
     }
 
+    const handleLogout = () => {
+        props.onLogined(null);
+    }
+
     return(
         <div>
             <form class="row" onSubmit={handleSubmit}>
                 <div className="input-group mb-3">
                     <input onChange={handleChange} type="text" placeholder="Search for show." value={props.value}/>
-                    <button className="input-group-text" id="basic-addon2">
+                    <Link to="/search" onClick={handleSubmit} className="input-group-text" id="basic-addon2">
                        <Link to="/search">
                              Search
                         </Link>
-                    </button>
+                    </Link>
                     {/* <button className="btn btn-primary" type="submit" onSubmit={handleSubmit}> */}
                     {/* </button> */}
-                    {props.logined ? <Link to="/user">{props.logined}</Link>: <Link to="/login">Login</Link>}
-                    {props.logined ? <>Log Out</> : <Link to="/signup">Sign Up</Link>}
+                    {props.logined ? <Link className="input-group-text" to="/user">{props.logined}</Link>: <Link className="input-group-text" to="/login">Login</Link>}
+                    {props.logined ? <Link className="input-group-text" to="/home" onClick={handleLogout}>Log Out</Link> : <Link className="input-group-text" to="/signup">Sign Up</Link>}
                 </div>
             </form>
         </div>

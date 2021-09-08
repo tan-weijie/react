@@ -71,7 +71,7 @@ function App() {
                 TVClone
               </Link>
             </h1>
-            <Form onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result} logined={logined}/>
+            <Form onLogined={onLogined} onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result} logined={logined}/>
             <Route path="/search">
                 <Search result={result} onSelected={onSelected}/>
             </Route>
