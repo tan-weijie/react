@@ -17,7 +17,7 @@ const Show = (props) => {
         <article className="row">
             <div className="col-3 d-grid gap-2">
                 {selected.image ? <img src={selected.image.medium}/> : <img src="No image found"/>}
-                <button className="btn btn-primary" onClick={handleFavourite}>Add to favourites</button>
+                <button className="btn btn-primary" onClick={handleFavourite}>Add to Favourites</button>
             </div>
             <div className="row">
                 <h2>Title: {selected.name}</h2>

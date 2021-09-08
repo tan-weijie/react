@@ -73,7 +73,6 @@ function App() {
             </h1>
             <Form onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result} logined={logined}/>
             <Route path="/search">
-                <h1>Search Results:</h1>
                 <Search result={result} onSelected={onSelected}/>
             </Route>
             <Route path="/shows/">

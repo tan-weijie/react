@@ -10,12 +10,11 @@ const User = (props) => {
                     return (
                         // <img src={element.image.medium}/>
 
-                        <div className="card col-sm-3">
+                        <div className="card col-sm-3 ">
                                 <img src={element.image.medium} className="card-img-top" alt=""/>
-                                <div class="card-body">
-                                    {/* <h5 class="card-title">{element.show.name}</h5> */}
-                                    {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                                    {/* <a href="#" class="btn btn-primary">Add to favourite</a> */}
+                                <div class="card-body d-grid gap-2">
+                                    <h5 class="card-title">{element.name}</h5>
+                                    <button className="btn btn-primary">Remove</button>
                                 </div>
                         </div>
                     )

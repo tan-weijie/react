@@ -43,6 +43,7 @@ const Search = (props) => {
 
     return (
         <>  
+            <h3>Search Results:</h3>
             <Link to="/search">
                 <div className="row">{display}</div>
             </Link>

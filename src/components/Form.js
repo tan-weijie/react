@@ -34,17 +34,20 @@ const Form = (props) => {
 
     return(
         <div>
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="text" placeholder="Search for show." value={props.value}/>
-                <button onSubmit={handleSubmit}>
-                    <Link to="/search">
-                        Search
-                    </Link>
-                </button>
+            <form class="row" onSubmit={handleSubmit}>
+                <div className="input-group mb-3">
+                    <input onChange={handleChange} type="text" placeholder="Search for show." value={props.value}/>
+                    <button className="input-group-text" id="basic-addon2">
+                       <Link to="/search">
+                             Search
+                        </Link>
+                    </button>
+                    {/* <button className="btn btn-primary" type="submit" onSubmit={handleSubmit}> */}
+                    {/* </button> */}
+                    {props.logined ? <Link to="/user">{props.logined}</Link>: <Link to="/login">Login</Link>}
+                    {props.logined ? <>Log Out</> : <Link to="/signup">Sign Up</Link>}
+                </div>
             </form>
-          
-            {props.logined ? <Link to="/user">{props.logined}</Link>: <Link to="/login">Login</Link>}
-            {props.logined ? <>Log Out</> : <Link to="/signup">Sign Up</Link>}
         </div>
     )
 }
