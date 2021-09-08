@@ -33,16 +33,19 @@ const Form = (props) => {
     }
 
     return(
-        <form>
-            <input onChange={handleChange} type="text" placeholder="Search for show." value={props.value}/>
-            <button onClick={handleSubmit}>
-                <Link to="/search">
-                    Search
-                </Link>
-            </button>
+        <div>
+            <form onSubmit={handleSubmit}>
+                <input onChange={handleChange} type="text" placeholder="Search for show." value={props.value}/>
+                <button onSubmit={handleSubmit}>
+                    <Link to="/search">
+                        Search
+                    </Link>
+                </button>
+            </form>
+          
             {props.logined ? <Link to="/user">{props.logined}</Link>: <Link to="/login">Login</Link>}
             {props.logined ? <>Log Out</> : <Link to="/signup">Sign Up</Link>}
-        </form>
+        </div>
     )
 }
 

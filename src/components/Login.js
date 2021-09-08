@@ -30,22 +30,22 @@ const Login = (props) => {
     }
 
     return (
-        <form>
-            <h3>Login with your TVClone account.</h3>
-            <div>
-                <label>Username</label>
-                <input onChange={handleUserNameChange}type="text" placeholder="Username" value={account}/>
-            </div>
-            <div>
-                <label>Password</label>
-                <input onChange={handlePassWordChange} type="password" placeholder="Password" value={password}/>
-            </div>
-            <button onClick={handleSubmit} type="submit">Login</button>
-            {/* <br/>
-            {account}
-            <br/>
-            {password} */}
-        </form>
+            <form className="container-sm">
+                <h3>Login with your TVClone account.</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Username</span>
+                    <input onChange={handleUserNameChange} type="text" class="form-control" placeholder="username123" aria-label="Username" aria-describedby="basic-addon1" value={account}/>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">Password</span>
+                    <input onChange={handlePassWordChange} type="password" class="form-control" placeholder="********" aria-label="Username" aria-describedby="basic-addon1" value={password}/>
+                </div>
+                <div class="d-grid gap-2">
+                    {/* <Link to="/login"> */}
+                        <button onClick={handleSubmit} class="btn btn-primary" type="submit">Login</button>
+                    {/* </Link> */}
+                </div>     
+            </form>
     )
 }
 
