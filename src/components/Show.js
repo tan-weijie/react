@@ -5,7 +5,7 @@ const Show = (props) => {
 
     const selected = props.show;
 
-    // const [favourite, setFavourite] = useState([{}]);
+    
 
     const handleFavourite = (e) => {
         e.preventDefault();
@@ -18,7 +18,7 @@ const Show = (props) => {
             <div className="row">
                 <h2>{selected.name}</h2>
                 <div className="col-3 d-grid gap-2">
-                    {selected.image ? <img src={selected.image.medium}/> : <img src="No image found"/>}
+                    {selected.image ? <img src={selected.image.medium}/> : <img src="https://via.placeholder.com/210x295?text=No+Image"/>}
                     <button className="btn btn-primary" onClick={handleFavourite}>Add to Favourites</button>
                 </div>
             </div>

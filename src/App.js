@@ -61,6 +61,12 @@ function App() {
       console.log("favourite",favourite);
     }
 
+    const onRemove = (removeFav) => {
+        setFavourite((prevFavourite) => prevFavourite.filter((el) => el.id !== removeFav));
+        console.log(favourite);
+        console.log(removeFav);
+    }
+
     useEffect(() => {
 
     },[])
@@ -91,7 +97,7 @@ function App() {
                 <SignUp onSignUp={onSignUp}/>
             </Route>
             <Route path="/user/">
-                <User logined={logined} favourite={favourite}/>
+                <User logined={logined} onRemove={onRemove} favourite={favourite}/>
             </Route>
         </main>
     );

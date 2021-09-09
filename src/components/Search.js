@@ -15,7 +15,7 @@ const Search = (props) => {
                 imageLink = element.show.image.medium;
             }
             else {
-                imageLink = "No image";
+                imageLink = `https://via.placeholder.com/210x295?text=${element.show.name}`;
             }
             return (
                 // <div className="col-sm-2" onClick={props.onSelected} >
