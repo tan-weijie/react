@@ -62,7 +62,8 @@ function App() {
     }
 
     const onRemove = (removeFav) => {
-        setFavourite((prevFavourite) => prevFavourite.filter((el) => el.id !== removeFav));
+        setFavourite((prevFavourite) => prevFavourite.filter(el => el.id === removeFav));
+        // setFavourite(favourite.filter(el => el.id == removeFav));
         console.log(favourite);
         console.log(removeFav);
     }
@@ -76,7 +77,7 @@ function App() {
             <div className="header"> 
               <h1>
                 <Link exact to="/home">
-                    TVClone
+                    TV Show
                 </Link>
               </h1>
             </div>

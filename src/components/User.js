@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect}from 'react';
 import "../index.css";
 
 const User = (props) => {
@@ -7,6 +7,9 @@ const User = (props) => {
         props.onRemove(e.target.id);
     }
 
+    useEffect(() => {
+
+    },[handleRemove]);
     return(
         <>
             {/* {props.logined} */}
