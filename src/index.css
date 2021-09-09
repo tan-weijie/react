@@ -1,5 +1,33 @@
+html {
+  background-color: rgba(0, 0, 0, 0.76);
+}
+
 main {
-  background-color: blueviolet;
+  background-color: rgba(0, 0, 0, 0.76);
+}
+
+.header {
+  background-color: rgb(7, 160, 114);
+}
+
+a.title{
+  color: black;
+}
+
+.white{
+  color: white;
+}
+
+.search{
+   width: 50%; 
+}
+
+.card{
+  background-color: lightgrey;
+}
+
+h5 {
+  color: black;
 }
 
 body {
@@ -9,6 +37,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.display {
+  color: white;
+}
+
+article{
+  color: white;
 }
 
 code {

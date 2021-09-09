@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, Switch, Route, Router } from "react-router-dom";
+import Home from "./components/Home";
 import Header from "./components/Header";
 import Show from "./components/Show";
 import Search from "./components/Search";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import User from "./components/User";
+import "./index.css";
 
 function App() {
 
@@ -22,7 +24,6 @@ function App() {
 
     const onSubmit = () => {
       setSearch(input)
-      // console.log(result);
     }
 
     const onResult = (inputResult) => {
@@ -65,13 +66,18 @@ function App() {
     },[])
     
     return (
-        <main>  
-            <h1>
-              <Link exact to="/home">
-                TVClone
-              </Link>
-            </h1>
+        <main> 
+            <div className="header"> 
+              <h1>
+                <Link exact to="/home">
+                    TVClone
+                </Link>
+              </h1>
+            </div>
             <Header onLogined={onLogined} onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result} logined={logined}/>
+            <Route exact path="/home">
+              <Home/>
+            </Route>
             <Route path="/search">
                 <Search result={result} onSelected={onSelected}/>
             </Route>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Search.css";
+import "../index.css";
 
 const Search = (props) => {
 
@@ -24,16 +24,16 @@ const Search = (props) => {
                 //         <p onClick={props.onSelected} selected={element.show} id={element.show.id}>{element.show.name}</p> 
                 //     </Link>
                 // </div>
-                    <div className="card col-sm-3" onClick={props.onSelected}>
-                        <Link to={`/shows/${element.show.id}/${element.show.name}`}>
-                            <img src={imageLink} onClick={props.onSelected} id={element.show.id} selected={element.show} class="card-img-top" alt={element.show.name}/>
-                            <div class="card-body">
-                                <h5 class="card-title" onClick={props.onSelected} selected={element.show}>{element.show.name}</h5>
-                                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                                {/* <a href="#" class="btn btn-primary">Add to favourite</a> */}
-                            </div>
-                        </Link>
-                    </div>
+                <div className="card col-sm-3">
+                    <Link to={`/shows/${element.show.id}/${element.show.name}`}>
+                        <img src={imageLink} onClick={props.onSelected} id={element.show.id} selected={element.show} class="card-img-top" alt={element.show.name}/>
+                        <div class="card-body">
+                            <h5 class="card-title" onClick={props.onSelected} selected={element.show}>{element.show.name}</h5>
+                            {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
+                            {/* <a href="#" class="btn btn-primary">Add to favourite</a> */}
+                        </div>
+                    </Link>
+                </div>
             )
         })
     }
@@ -43,7 +43,7 @@ const Search = (props) => {
 
     return (
         <>  
-            <h3>Search Results:</h3>
+            {display.length !== 0  ? <h3 className="white">Search Results:</h3> : <h3 className="white">Search Results: No Shows found.</h3>}
             <div className="row">{display}</div>
         </>
     )

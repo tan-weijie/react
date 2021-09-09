@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import "../index.css";
 import {Link} from 'react-router-dom';
 
 const SignUp = (props) => {
@@ -41,7 +42,7 @@ const SignUp = (props) => {
     }
 
     return (
-        <form class="container-sm">
+        <form class="display container-sm">
             <h3>Sign up a new TVClone account.</h3>
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Username</span>

@@ -1,4 +1,5 @@
 import React ,{useState} from 'react';
+import "../index.css";
 
 const Login = (props) => {
 
@@ -30,7 +31,7 @@ const Login = (props) => {
     }
 
     return (
-            <form className="container-sm">
+            <form className="display container-sm">
                 <h3>Login with your TVClone account.</h3>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Username</span>

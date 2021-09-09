@@ -15,13 +15,17 @@ const Show = (props) => {
 
     return (
         <article className="row">
-            <div className="col-3 d-grid gap-2">
-                {selected.image ? <img src={selected.image.medium}/> : <img src="No image found"/>}
-                <button className="btn btn-primary" onClick={handleFavourite}>Add to Favourites</button>
-            </div>
             <div className="row">
-                <h2>Title: {selected.name}</h2>
-                {selected.officialSite && <a href={selected.officialSite}>Official Site</a>}
+                <h2>{selected.name}</h2>
+                <div className="col-3 d-grid gap-2">
+                    {selected.image ? <img src={selected.image.medium}/> : <img src="No image found"/>}
+                    <button className="btn btn-primary" onClick={handleFavourite}>Add to Favourites</button>
+                </div>
+            </div>
+     
+            <div className="row">
+           
+                {selected.officialSite && <a href={selected.officialSite} target="_blank">Official Site</a>}
                 <p> 
                     <b>Language: </b>{selected.language}
                     <br/>
@@ -29,8 +33,8 @@ const Show = (props) => {
                     <br/>
                     <b>Genres: </b>{selected.genres.join(" | ")}
                 </p>
-                <p className="summary" dangerouslySetInnerHTML={{__html: selected.summary}}></p> 
                 <br/>
+                <p className="summary" dangerouslySetInnerHTML={{__html: selected.summary}}></p> 
             </div>
         </article>
     )
