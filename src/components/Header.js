@@ -31,9 +31,9 @@ const Header = (props) => {
     }
 
     return(
-        <div className="header">
-            <form className="row" onSubmit={handleSubmit}>
-                <div className="input-group mb-3">
+        <div>
+            <form className="center" onSubmit={handleSubmit}>
+                <div className="input-group">
                     <input className="search" onChange={handleChange} type="text" placeholder="Search for show." value={props.value}/>
                     <Link to="/search" onClick={handleSubmit} className="input-group-text" id="basic-addon2">
                        <Link to="/search">

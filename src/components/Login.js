@@ -31,7 +31,7 @@ const Login = (props) => {
     }
 
     return (
-            <form className="display container-sm">
+            <form className="register container-sm">
                 <h3>Login with your TVClone account.</h3>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Username</span>

@@ -14,19 +14,19 @@ const Show = (props) => {
     }
 
     return (
-        <article className="row">
-            <div className="row">
-                <h2>{selected.name}</h2>
+        <article className="row white">
+            <div>
+                <h3>{selected.name}</h3>
                 <div className="col-3 d-grid gap-2">
-                    {selected.image ? <img src={selected.image.medium}/> : <img src="https://via.placeholder.com/210x295?text=No+Image"/>}
+                    {selected.image ? <img className="float" src={selected.image.medium}/> : <img className="float" src="https://via.placeholder.com/210x295?text=No+Image"/>}
                     <button className="btn btn-primary" onClick={handleFavourite}>Add to Favourites</button>
                 </div>
             </div>
-     
-            <div className="row">
-           
-                {selected.officialSite && <a href={selected.officialSite} target="_blank">Official Site</a>}
+            <div>
+                <br/>
+                {selected.officialSite && <a className="site" href={selected.officialSite} target="_blank">Official Site</a>}
                 <p> 
+                <br/>
                     <b>Language: </b>{selected.language}
                     <br/>
                     <b>Rating: </b>{selected.rating.average ? selected.rating.average: "None"}

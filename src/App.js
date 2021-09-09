@@ -47,9 +47,6 @@ function App() {
       const allUser = [];
       allUser.push(newUser)
       storage.setItem(newUser.user, JSON.stringify(allUser));
-      // setSignUp(newUser);
-      console.log(storage.getItem('hello'))
-      console.log(storage.getItem("byebye"))
       console.log("user added")
     }
 
@@ -58,13 +55,13 @@ function App() {
         setFavourite((prevState) => {
           return [inputFavourite,...prevState]
       })
-      console.log("favourite",favourite);
     }
 
+    // Remove favourites
     const onRemove = (removeFav) => {
-        setFavourite((prevFavourite) => prevFavourite.filter(el => el.id === removeFav));
+        setFavourite((prevFavourite) => [...prevFavourite.filter(el => el.id === removeFav)]);
         // setFavourite(favourite.filter(el => el.id == removeFav));
-        console.log(favourite);
+        console.log(favourite[0]);
         console.log(removeFav);
     }
 
@@ -74,14 +71,14 @@ function App() {
     
     return (
         <main> 
-            <div className="header"> 
-              <h1>
-                <Link exact to="/home">
-                    TV Show
+            <div className="header">
+              <h1 >
+                <Link className="title" exact to="/home">
+                    TV Show App
                 </Link>
               </h1>
+              <Header onLogined={onLogined} onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result} logined={logined}/>
             </div>
-            <Header onLogined={onLogined} onChange={onChange} onResult={onResult} onSubmit={onSubmit} value={input} result={result} logined={logined}/>
             <Route exact path="/home">
               <Home/>
             </Route>
