@@ -5,6 +5,7 @@ const Login = (props) => {
 
     const [account, setAccount] = useState("");
     const [password, setPassword] = useState("");
+    const [prompt, setPrompt] = useState("");
 
     const handleUserNameChange = (e) => {
         setAccount(e.target.value)
@@ -20,12 +21,13 @@ const Login = (props) => {
         console.log(result);
         // console.log(result[0].password)
         if(!result || result[0].password !== password){
-            alert("Invalid username and password")
+            setPrompt("Invalid username and password")
             props.onLogined(null);
         }
         else {
             setAccount("");
             setPassword("");
+            setPrompt("")
             props.onLogined(account);
         }
     }
@@ -45,7 +47,13 @@ const Login = (props) => {
                     {/* <Link to="/login"> */}
                         <button onClick={handleSubmit} class="btn btn-primary" type="submit">Login</button>
                     {/* </Link> */}
-                </div>     
+                </div>
+                {prompt &&    
+                <div className="d-grid gap-2">
+                    <div class="alert alert-warning" role="alert">
+                        {prompt}
+                    </div>
+                </div>}         
             </form>
     )
 }
